@@ -1,0 +1,262 @@
+/* Page background */
+body {
+    margin: 0;
+    background: #01291f; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    padding: 50px 0;
+  }
+  
+  /* Flex container for page content */
+  .page-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Framed text box */
+  .text-frame {
+    position: relative;
+    background: #000; 
+    border: 4px solid #fff; 
+    padding: 30px 40px;
+    max-width: 800px;
+    line-height: 1.6;
+    box-shadow: 8px 8px 0 rgba(144, 236, 215, 0.45); 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Headings */
+  .text-frame h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .text-frame h2 {
+    font-size: 22px;
+    margin-top: 20px;
+  }
+  
+  /* Paragraphs */
+  .text-frame p {
+    font-size: 18px;
+  }
+  
+  /* Lists */
+  .text-frame ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+  
+  /*responsive adjustments */
+  @media screen and (max-width: 900px) {
+    .text-frame {
+      padding: 20px;
+      max-width: 90%;
+    }
+  
+    .text-frame h1 {
+      font-size: 24px;
+    }
+  
+    .text-frame h2 {
+      font-size: 20px;
+    }
+  
+    .text-frame p {
+      font-size: 16px;
+    }
+  }
+  .tattoo {
+    position: absolute;
+    width: 120px;
+    opacity: 0.9;
+    transition: filter 0.4s ease;
+}
+
+/* Top row */
+.t1 { top: 0; left: 10%; }
+.t2 { top: 0; right: 10%; }
+
+/* Sides */
+.t3 { top: 40%; left: 0; }
+.t4 { top: 40%; right: 0; }
+
+.t5 { bottom: 5%; left: 0; }
+.t6 { bottom: 5%; right: 0; }
+
+/* Bottom row */
+.t7 { bottom: -350px; left: 10%; }
+.t8 { bottom: -350px; right: 10%; }
+
+.tattoo-gun {
+    position: absolute;
+    width: 90px;
+    z-index: 1000;
+    animation: tattooMove 20s linear infinite;
+}
+@keyframes tattooMove {
+
+    /* T1 - Top Left */
+    0% {
+        top: 0%;
+        left: 10%;
+    }
+
+    /* T2 - Top Right */
+    12.5% {
+        top: 0%;
+        left: 80%;
+    }
+
+    /* T4 - Right Upper */
+    25% {
+        top: 40%;
+        left: 95%;
+    }
+
+    /* T6 - Right Lower */
+    37.5% {
+        top: 75%;
+        left: 95%;
+    }
+
+    /* T8 - Bottom Right */
+    50% {
+        top: 120%;
+        left: 80%;
+    }
+
+    /* T7 - Bottom Left */
+    62.5% {
+        top: 120%;
+        left: 10%;
+    }
+
+    /* T5 - Left Lower */
+    75% {
+        top: 75%;
+        left: 0%;
+    }
+
+    /* T3 - Left Upper */
+    87.5% {
+        top: 40%;
+        left: 0%;
+    }
+
+    /* Back to T1 */
+    100% {
+        top: 0%;
+        left: 10%;
+    }
+}
+
+
+
+@keyframes glowTat {
+    0%, 100% { filter: brightness(1); }
+    6% { filter: brightness(1.9) drop-shadow(0 0 14px red); }
+}
+
+
+.t1 { animation: glowTat 20s linear infinite; animation-delay: 0s; }
+.t2 { animation: glowTat 20s linear infinite; animation-delay: 2.5s; }
+.t4 { animation: glowTat 20s linear infinite; animation-delay: 5s; }
+.t6 { animation: glowTat 20s linear infinite; animation-delay: 7.5s; }
+.t8 { animation: glowTat 20s linear infinite; animation-delay: 10s; }
+.t7 { animation: glowTat 20s linear infinite; animation-delay: 12.5s; }
+.t5 { animation: glowTat 20s linear infinite; animation-delay: 15s; }
+.t3 { animation: glowTat 20s linear infinite; animation-delay: 17.5s; }
+
+  /* Floating pixel navigation */
+.pixel-guide {
+    position: fixed;
+    right: 40px;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column; /* bubble above her */
+    align-items: center;
+    text-decoration: none;
+    z-index: 1000;
+    animation: floatPixel 4s ease-in-out infinite;
+    position: fixed;
+}
+
+
+/* Pixel image */
+.pixel-guide img {
+    width: 120px;
+    image-rendering: pixelated;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.pixel-guide:hover img {
+    transform: scale(1.08);
+}
+
+/* Speech bubble */
+.speech-bubble {
+    background: black;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    border: 2px solid white;
+    box-shadow: 4px 4px 0 rgba(255,255,255,0.7);
+    margin-bottom: 15px;
+    position:relative;
+    max-width: 310px;
+}
+
+/* Bubble arrow pointing down */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 12px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+
+/* Typewriter Effect */
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid white;
+    width: 0;
+    animation: typing 3s steps(32, end) forwards,
+               blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+
+/* Floating animation */
+@keyframes floatPixel {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+

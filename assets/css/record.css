@@ -1,0 +1,224 @@
+/* Body Styling */
+body {
+    margin: 0;
+    background: #01291f;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+/* Main Container */
+.container {
+    width: 1200px;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Intro */
+.intro {
+    background: #000000;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(144, 236, 215, 0.45);
+}
+
+.intro h1 {
+    color: #90ecd7;
+    margin-top: 0;
+}
+
+.intro p {
+    line-height: 1.6;
+}
+
+/* Content Block */
+.content-block {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Text side */
+.text-side {
+    flex: 1;
+    background: #000000;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(144, 236, 215, 0.45);
+    line-height: 1.6;
+}
+
+.text-side h2 {
+    color: #90ecd7;
+    margin-top: 0;
+}
+
+.text-side ul {
+    margin: 10px 0 10px 20px;
+    padding: 0;
+    list-style-type: disc;
+}
+
+/* Right-side stack */
+.record-stack {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hide radio buttons */
+.record-stack input {
+    display: none;
+}
+
+/* Image wrapper */
+.records {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* PNG styling */
+.rec {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Show active image */
+#r1:checked ~ .records .rec1,
+#r2:checked ~ .records .rec2,
+#r3:checked ~ .records .rec3,
+#r4:checked ~ .records .rec4,
+#r5:checked ~ .records .rec5,
+#r6:checked ~ .records .rec6 {
+    opacity: 1;
+}
+
+/* Dots under image */
+.dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dots label {
+    width: 12px;
+    height: 12px;
+    background: #90ecd7;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+/* Active dot */
+#r1:checked ~ .dots label:nth-child(1),
+#r2:checked ~ .dots label:nth-child(2),
+#r3:checked ~ .dots label:nth-child(3),
+#r4:checked ~ .dots label:nth-child(4),
+#r5:checked ~ .dots label:nth-child(5),
+#r6:checked ~ .dots label:nth-child(6) {
+    opacity: 1;
+}
+/* Floating pixel navigation */
+.pixel-guide {
+    position: fixed;
+    right: 40px;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column; /* bubble above her */
+    align-items: center;
+    text-decoration: none;
+    z-index: 1000;
+    animation: floatPixel 4s ease-in-out infinite;
+    position: fixed;
+}
+
+
+/* Pixel image */
+.pixel-guide img {
+    width: 120px;
+    image-rendering: pixelated;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.pixel-guide:hover img {
+    transform: scale(1.08);
+}
+
+/* Speech bubble */
+.speech-bubble {
+    background: black;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    border: 2px solid white;
+    box-shadow: 4px 4px 0 rgba(255,255,255,0.7);
+    margin-bottom: 15px;
+    position:relative;
+    max-width: 310px;
+}
+
+/* Bubble arrow pointing down */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 12px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+
+/* Typewriter Effect */
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid white;
+    width: 0;
+    animation: typing 3s steps(32, end) forwards,
+               blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+
+/* Floating animation */
+@keyframes floatPixel {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+

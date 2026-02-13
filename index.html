@@ -1,49 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome</title>
-
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <title>My Home!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/stylesheet1.css">
 </head>
 
 <body>
 
-  <p class="landing">
-    <em>
-      <span>
-        Find&nbsp;&nbsp;Your<br>
-        Confidence&nbsp;&<br>
-        Discover<br>
-        The&nbsp;&nbsp;&nbsp;&nbsp;Power<br>
-        Of Creative<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;Space
-      </span>
-    </em>
-  </p>
+<div class="room">
 
-  <div class="shape-grid">
-    <a href="2nd.html" class="shape">
-      <div class="star">Inspiration</div>
-    </a>
-  
-    <a href="3rd.html" class="shape">
-      <div class="star">Song</div>
-    </a>
-  
-    <a href="4th.html" class="shape">
-      <div class="star">Poem</div>
-    </a>
-  
-    <a href="5th.html" class="shape">
-      <div class="star">Learnings</div>
-    </a>
-  </div>
-  
-  <section class="media image">
-    <img src="assets/images/start texture.jpg" alt="Abstract star texture">
-  </section>
+    <!-- Shelf (NOT interactive) -->
+    <img src="assets/images/shelf.png" class="item shelf">
+
+    <!-- Couch -->
+    <a href="market.html"><img src="assets/images/couch.png" class="item couch interactive"></a>
+
+    <!-- Monstera -->
+    <a href="monstera.html"><img src="assets/images/Monstera.png" class="item monstera interactive"></a>
+
+    <!-- Leopard -->
+    <a href="lepord.html"><img src="assets/images/lepord.png" class="item leopard interactive"></a>
+
+    <!-- Table (NOT animated) -->
+    <img src="assets/images/table.png" class="item table">
+
+    <!-- Flowers -->
+    <a href="flower.html"><img src="assets/images/flowers.png" class="item flowers interactive"></a>
+
+    <!-- Taxidermy Jars -->
+    <a href="taxidermy.html"><img src="assets/images/taxidermy.png" class="item jars interactive"></a>
+
+    <!-- Coat Rack -->
+    <a href="thrift.html"><img src="assets/images/coatrack.png" class="item coat interactive"></a>
+
+    <!-- Simmer Pot -->
+    <a href="simmer.html"><img src="assets/images/simmerpot.png" class="item simmer interactive"></a>
+
+    <!-- 🎵 Record Player with Music Notes -->
+    <div class="record-wrapper record">
+        <a href="record.html">
+            <img src="assets/images/record.png" class="item interactive">
+        </a>
+        <audio controls class="audiobar">
+            <source src="assets/audio/home.mp3" type="audio/mpeg">
+        </audio>
+        <span class="note note1">♪</span>
+        <span class="note note2">♫</span>
+        <span class="note note3">♪</span>
+    </div>
+
+    <!-- ☕ Coffee with Steam -->
+    <div class="coffee-wrapper coffee">
+        <a href="coffee.html">
+            <img src="assets/images/coffee.png" class="item interactive">
+        </a>
+        <span class="steam steam1"></span>
+        <span class="steam steam2"></span>
+        <span class="steam steam3"></span>
+    </div>
+
+    <div class="floor"></div>
+
+</div>
+<!-- Pixel Guide Navigation -->
+<a href="end.html" class="pixel-guide">
+    <img src="assets/images/favicon1.png" alt="Site Guide">
+
+    <div class="speech-bubble">
+        <span class="typewriter">Hello! Welcome to my home!<br><br>Explore my hobbies!
+        </span>
+    </div>
+
+</a>
 
 </body>
 </html>
-
