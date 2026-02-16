@@ -75,10 +75,10 @@ body {
 /* Floating phone on the right without affecting text */
 .phone-floating {
     position: absolute;
-    top: 300px;   /* adjust as needed */
-    right: 350px;  /* distance from right edge */
+    top: 300px;
+    right: 350px;
     width: 300px;
-    height: 1000px; /* size of phone PNG */
+    height: 1000px;
     z-index: 1000;
 }
 
@@ -92,13 +92,12 @@ body {
     width: auto;
     height: 1000px;
     display: block;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     z-index: 10;
 }
 
 .phone-container .phone-video {
     position: absolute;
-    top: 110px;      /* inside the phone screen */
+    top: 110px;
     right: -215px;
     width: 365px;
     height: 780px;
@@ -183,4 +182,71 @@ body {
     50% { transform: translateY(-12px); }
     100% { transform: translateY(0px); }
 }
+/* Small / bottom phone layout */
+@media screen and (max-width: 1050px) {
+    .phone-floating {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 20px auto 0 auto;
+        width: 260px;
+        height: auto;
+    }
 
+    .phone-container {
+        position: relative;
+        display: block;
+        width: 280px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .phone-container .phone {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .phone-container .phone-video {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 57%;          /* slightly narrower */
+        max-height: 320px;   /* slightly shorter */
+        height: auto;
+        border-radius: 30px; /* slightly less curved */
+        pointer-events: none;
+    }
+}
+
+/* Other small breakpoints */
+@media screen and (max-width: 900px) {
+    .phone-floating { width: 240px; margin: 20px auto 0 auto; }
+    .phone-container { width: 250px; margin: 0 auto; }
+    .phone-container .phone-video { width: 57%; max-height: 290px; height: auto; border-radius: 30px; }
+}
+
+@media screen and (max-width: 768px) {
+    .phone-floating { width: 220px; margin-top: 20px; }
+    .phone-container { width: 230px; margin: 0 auto; }
+    .phone-container .phone-video { width: 57%; max-height: 255px; height: auto; border-radius: 28px; }
+}
+
+@media screen and (max-width: 600px) {
+    .phone-floating { width: 180px; margin-top: 15px; }
+    .phone-container { width: 190px; margin: 0 auto; }
+    .phone-container .phone-video { width: 57%; max-height: 225px; height: auto; border-radius: 28px; }
+}
+
+@media screen and (max-width: 480px) {
+    .phone-floating { width: 150px; margin-top: 12px; }
+    .phone-container { width: 160px; margin: 0 auto; }
+    .phone-container .phone-video { width: 57%; max-height: 195px; height: auto; border-radius: 25px; }
+}
+
+@media screen and (max-width: 320px) {
+    .phone-floating { width: 120px; margin-top: 10px; }
+    .phone-container { width: 130px; margin: 0 auto; }
+    .phone-container .phone-video { width: 57%; max-height: 175px; height: auto; border-radius: 25px; }
+}

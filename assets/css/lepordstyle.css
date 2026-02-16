@@ -258,5 +258,70 @@ body {
     50% { transform: translateY(-12px); }
     100% { transform: translateY(0px); }
 }
+/* Media Queries */
+/* Large tablets / small desktops */
+@media screen and (max-width: 1024px) {
+    .text-frame {
+        max-width: 70%;   /* narrower than before */
+        padding: 25px 25px;
+    }
 
+    .text-frame h1 { font-size: 24px; }
+    .text-frame h2 { font-size: 20px; }
+    .text-frame p  { font-size: 16px; }
+}
+
+/* Tablets / medium screens */
+@media screen and (max-width: 768px) {
+    .text-frame {
+        max-width: 65%;   /* narrower */
+        padding: 20px 20px;
+        gap: 15px;
+    }
+
+    .text-frame h1 { font-size: 22px; }
+    .text-frame h2 { font-size: 18px; }
+    .text-frame p  { font-size: 15px; }
+}
+
+/* Small tablets / large phones */
+@media screen and (max-width: 600px) {
+    .text-frame {
+        max-width: 60%;   /* even narrower */
+        padding: 15px 15px;
+        gap: 12px;
+    }
+
+    .text-frame h1 { font-size: 20px; }
+    .text-frame h2 { font-size: 16px; }
+    .text-frame p  { font-size: 14px; }
+
+    .page-container { padding: 0 10px; }
+}
+
+/* Phones */
+@media screen and (max-width: 480px) {
+    .text-frame {
+        max-width: 55%;   /* narrower for phones */
+        padding: 12px 12px;
+        gap: 10px;
+    }
+
+    .text-frame h1 { font-size: 18px; }
+    .text-frame h2 { font-size: 15px; }
+    .text-frame p  { font-size: 13px; }
+}
+
+/* Smallest phones */
+@media screen and (max-width: 320px) {
+    .text-frame {
+        max-width: 50%;   /* smallest width */
+        padding: 10px 10px;
+        gap: 8px;
+    }
+
+    .text-frame h1 { font-size: 16px; }
+    .text-frame h2 { font-size: 14px; }
+    .text-frame p  { font-size: 12px; }
+}
 
