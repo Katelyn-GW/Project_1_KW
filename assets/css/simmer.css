@@ -24,13 +24,28 @@ body {
     box-shadow: 0 50px 100px rgba(144, 236, 215, 0.45);
 }
 
-/* Text Box*/
+/* Hidden by default */
 .text-box {
+    opacity: 1; /* default visible */
+    max-height: 100%; /* full height */
+    transition: all 0.6s ease;
     width: 55%;
     color: #fff;
     overflow-y: auto;
     height: 100%;
     box-sizing: border-box;
+}
+
+/* When hidden */
+.text-box:not(.show) {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* Optional: cursor for clickable image */
+.clickable-image {
+    cursor: pointer;
 }
 
 .text-box h1 {
@@ -106,13 +121,13 @@ body {
     }
 }
 
-/* Floating pixel navigation */
+/* navigation system */
 .pixel-guide {
     position: fixed;
     right: 40px;
     bottom: 60px;
     display: flex;
-    flex-direction: column; /* bubble above her */
+    flex-direction: column; 
     align-items: center;
     text-decoration: none;
     z-index: 1000;
@@ -120,18 +135,6 @@ body {
     position: fixed;
 }
 
-
-/* Pixel image */
-.pixel-guide img {
-    width: 120px;
-    image-rendering: pixelated;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.pixel-guide:hover img {
-    transform: scale(1.08);
-}
 
 /* Speech bubble */
 .speech-bubble {
@@ -143,33 +146,23 @@ body {
     font-size: 16px;
     border: 2px solid white;
     box-shadow: 4px 4px 0 rgba(255,255,255,0.7);
-    margin-bottom: 15px;
     position:relative;
     max-width: 310px;
 }
 
-/* Bubble arrow pointing down */
-.speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 12px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
-}
-
-
-/* Typewriter Effect */
+/* Typewriter Effect fro speech bubble*/
 .typewriter {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid white;
     width: 0;
-    animation: typing 3s steps(32, end) forwards,
+    animation: typing 2s steps(32, end) forwards,
                blink 0.8s step-end infinite;
+}
+.pixel-guide:hover .speech-bubble {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 @keyframes typing {

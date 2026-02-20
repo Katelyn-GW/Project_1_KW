@@ -30,18 +30,28 @@
 
     </div>
 
-    <!-- Shelf/Image Placeholder -->
+    <!-- Image Placeholder -->
     <div class="shelf-container">
         <img src="assets/images/rat.png"
              alt="Taxidermy Rat"
              class="ratimage"
              onclick="let s=document.getElementById('ratSound'); s.currentTime=0; s.play();">
+             <script>
+                const ratImage = document.querySelector('.ratimage');
+                const textBox = document.querySelector('.text-box');
+            
+                ratImage.addEventListener('click', () => {
+                    // toggle the visibility
+                    textBox.classList.toggle('show');
+                    // The sound effect still works because onclick on the image is preserved
+                });
+            </script>
     </div>
 
 </div>
-<!-- Pixel Guide Navigation -->
+
+<!-- Speech Bubble Navigation -->
 <a href="index.html" class="pixel-guide">
-    <img src="assets/images/favicon1.png" alt="Site Guide">
 
     <div class="speech-bubble">
         <span class="typewriter">Click the rat!</span>

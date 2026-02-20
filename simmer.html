@@ -21,7 +21,7 @@
 
     <!-- Placeholder for Simmer Pot Image -->
     <div class="image-placeholder">
-        <div class="steam-container">
+        <div class="steam-container clickable-image">
             <img src="assets/images/simmer.png" alt="Simmer Pot Example">
             
             <!-- Steam -->
@@ -31,17 +31,24 @@
         </div>
     </div>
     
-
 </div>
-<!-- Pixel Guide Navigation -->
+
+<!-- Speech Bubble Navigation -->
 <a href="index.html" class="pixel-guide">
-    <img src="assets/images/favicon1.png" alt="Site Guide">
-
     <div class="speech-bubble">
-        <span class="typewriter">Mmmm, my nose is happy!</span>
+        <span class="typewriter">Click the simmer pot!<br><br>Mmmm, my nose is happy!</span>
     </div>
-
 </a>
+
+<script>
+    // Toggle text-box visibility when image is clicked
+    const clickableImage = document.querySelector('.clickable-image');
+    const textBox = document.querySelector('.text-box');
+
+    clickableImage.addEventListener('click', () => {
+        textBox.classList.toggle('show');
+    });
+</script>
 
 </body>
 </html>

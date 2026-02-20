@@ -8,12 +8,12 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-/* Scaling wrapper */
+/* room container */
 .room-scale {
     transform: scale(clamp(0.35, 100vw / 1300, 1));
     transform-origin: center;
 }
-/* Audio Player Styling */
+/* Audio Player */
 .audiobar {
     position: absolute;
     bottom: -30px;  
@@ -35,7 +35,7 @@ body {
     box-shadow: 0 50px 100px rgba(144, 236, 215, 0.45);
 }
 
-/* Floor trim */
+/* Floor */
 .floor {
     position: absolute;
     bottom: 0;
@@ -48,17 +48,28 @@ body {
 /* Shared Image Styling */
 .item {
     position: absolute;
+    
 }
 
-/* Only interactive objects */
+/* interactive object animation */
 .interactive {
-    transition: transform .3s ease, filter .3s ease;
+    transform-origin: bottom center;
 }
 
 .interactive:hover {
     transform: scale(1.03);
     filter: drop-shadow(0 20px 30px rgba(144, 236, 215, 0.45));
     cursor: pointer;
+    animation: wiggle 0.6s ease-in-out infinite;
+    transform-origin: bottom center;
+    
+}
+@keyframes wiggle {
+    0%   { transform: scale(1.03) rotate(0deg); }
+    25%  { transform: scale(1.03) rotate(2deg); }
+    50%  { transform: scale(1.03) rotate(0deg); }
+    75%  { transform: scale(1.03) rotate(-2deg); }
+    100% { transform: scale(1.03) rotate(0deg); }
 }
 
 /* POSITIONING OF OBJECTS */
@@ -206,13 +217,13 @@ body {
     }
 }
 
-/* Floating pixel navigation */
+/* navigation system */
 .pixel-guide {
     position: fixed;
     right: 40px;
     top: 60px;
     display: flex;
-    flex-direction: column; /* bubble above her */
+    flex-direction: column; 
     align-items: center;
     text-decoration: none;
     z-index: 1000;
@@ -220,18 +231,6 @@ body {
     position: fixed;
 }
 
-
-/* Pixel image */
-.pixel-guide img {
-    width: 120px;
-    image-rendering: pixelated;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.pixel-guide:hover img {
-    transform: scale(1.08);
-}
 
 /* Speech bubble */
 .speech-bubble {
@@ -243,25 +242,11 @@ body {
     font-size: 16px;
     border: 2px solid white;
     box-shadow: 4px 4px 0 rgba(255,255,255,0.7);
-    margin-bottom: 15px;
     position:relative;
     max-width: 310px;
 }
 
-/* Bubble arrow pointing down */
-.speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 12px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
-}
-
-
-/* Typewriter Effect */
+/* Typewriter Effect fro speech bubble*/
 .typewriter {
     display: inline-block;
     overflow: hidden;
@@ -270,6 +255,10 @@ body {
     width: 0;
     animation: typing 3s steps(32, end) forwards,
                blink 0.8s step-end infinite;
+}
+.pixel-guide:hover .speech-bubble {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 @keyframes typing {
@@ -288,7 +277,7 @@ body {
     50% { transform: translateY(-12px); }
     100% { transform: translateY(0px); }
 }
-/* ============================= */
+
 /* 1024px */
 @media screen and (max-width: 1024px) {
 
@@ -298,7 +287,7 @@ body {
     }
 
 }
-/* ============================= */
+
 /* 768px */
 @media screen and (max-width: 768px) {
 
@@ -313,7 +302,7 @@ body {
     }
 
 }
-/* ============================= */
+
 /* 600px */
 @media screen and (max-width: 600px) {
 
@@ -327,7 +316,7 @@ body {
     }
 
 }
-/* ============================= */
+
 /* 480px */
 @media screen and (max-width: 480px) {
 
@@ -342,7 +331,7 @@ body {
     }
 
 }
-/* ============================= */
+
 /* 320px */
 @media screen and (max-width: 320px) {
 

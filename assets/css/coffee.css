@@ -1,4 +1,4 @@
-/* Body Styling */
+/* Page Background  */
 body {
     margin: 0;
     background: #01291f;
@@ -8,7 +8,7 @@ body {
     justify-content: center;
 }
 
-/* Main container */
+/* room container */
 .container {
     width: 1200px;
     margin: 40px 0;
@@ -56,7 +56,7 @@ body {
 .image-side img {
     width: auto;          /* ← key change */
     max-width: 100%;      /* prevents overflow */
-    height: auto;
+    height: 1000px;
     max-height: 300px;
     border-radius: 10px;
     opacity: 0;
@@ -91,6 +91,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(144, 236, 215, 0.45);
     line-height: 1.6;
+
 }
 
 .text-side h2 {
@@ -101,13 +102,40 @@ body {
 .text-side p {
     margin-bottom: 10px;
 }
-/* Floating pixel navigation */
+/* Hide text initially */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Fade in animation */
+.text-side {
+    transition: opacity 0.6s ease;
+}
+
+/* When activated */
+.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Make images feel clickable */
+.clickable {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.clickable:hover {
+    transform: scale(1.05);
+}
+
+/* navigation system */
 .pixel-guide {
     position: fixed;
     left: 40px;
     bottom: 60px;
     display: flex;
-    flex-direction: column; /* bubble above her */
+    flex-direction: column; 
     align-items: center;
     text-decoration: none;
     z-index: 1000;
@@ -115,18 +143,6 @@ body {
     position: fixed;
 }
 
-
-/* Pixel image */
-.pixel-guide img {
-    width: 120px;
-    image-rendering: pixelated;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.pixel-guide:hover img {
-    transform: scale(1.08);
-}
 
 /* Speech bubble */
 .speech-bubble {
@@ -138,25 +154,11 @@ body {
     font-size: 16px;
     border: 2px solid white;
     box-shadow: 4px 4px 0 rgba(255,255,255,0.7);
-    margin-bottom: 15px;
     position:relative;
-    max-width: 310px;
+    max-width: 330px;
 }
 
-/* Bubble arrow pointing down */
-.speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 12px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
-}
-
-
-/* Typewriter Effect */
+/* Typewriter Effect fro speech bubble*/
 .typewriter {
     display: inline-block;
     overflow: hidden;
@@ -165,6 +167,10 @@ body {
     width: 0;
     animation: typing 3s steps(32, end) forwards,
                blink 0.8s step-end infinite;
+}
+.pixel-guide:hover .speech-bubble {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 @keyframes typing {
@@ -263,9 +269,18 @@ body {
         left: 20px;
         bottom: 20px;
     }
-
-    .pixel-guide img {
-        width: 90px;
+    
+    .pixel-guide {
+        position: fixed;
+        right: 40px;
+        bottom: 60px;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        text-decoration: none;
+        z-index: 1000;
+        animation: floatPixel 4s ease-in-out infinite;
+        position: fixed;
     }
 
 }
@@ -291,6 +306,20 @@ body {
         font-size: 12px;
         padding: 8px 12px;
         max-width: 200px;
+        right: -20px;
+    }
+
+    .pixel-guide {
+        position: fixed;
+        right: 40px;
+        bottom: 60px;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        text-decoration: none;
+        z-index: 1000;
+        animation: floatPixel 4s ease-in-out infinite;
+        position: fixed;
     }
 
 }

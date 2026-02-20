@@ -13,11 +13,12 @@
     <!-- Personal Introduction -->
     <div class="intro">
         <h1>Taking Care of Your Vinyl Collection</h1>
-        <p>I've been into records lately because of the crisp sound they produce vs Bluetooth radio. Since the weather is cold, I tend to gravitate to grungy artists like Flyleaf, PinkNoise, Slipknot, Rob Zombie, Deftones, Evenessence.</p>
+        <p>I've been into records lately because of the crisp sound they produce vs Bluetooth radio. Since the weather is cold, I tend to gravitate to grungy artists like Flyleaf, PinkNoise, Slipknot, Rob Zombie, Deftones, Evanescence.</p>
     </div>
 
     <!-- Vinyl Care Tips -->
     <div class="content-block">
+
         <div class="text-side">
             <h2>Essential Vinyl Care Tips</h2>
             <ul>
@@ -32,49 +33,72 @@
 
         <div class="record-stack">
 
-            <input type="radio" name="slider" id="r1" checked>
-            <input type="radio" name="slider" id="r2">
-            <input type="radio" name="slider" id="r3">
-            <input type="radio" name="slider" id="r4">
-            <input type="radio" name="slider" id="r5">
-            <input type="radio" name="slider" id="r6">
-    
+            <!-- Records -->
             <div class="records">
-                <img src="assets/images/evanescense.png" class="rec rec1">
-                <img src="assets/images/slipknot.png" class="rec rec2">
-                <img src="assets/images/deftones.png" class="rec rec3">
-                <img src="assets/images/pinknoise.png" class="rec rec4">
-                <img src="assets/images/flyleaf.png" class="rec rec5">
-                <img src="assets/images/robzombie.png" class="rec rec6">
+                <img src="assets/images/evanescense.png" class="rec" alt="Evanescence">
+                <img src="assets/images/slipknot.png" class="rec" alt="Slipknot">
+                <img src="assets/images/deftones.png" class="rec" alt="Deftones">
+                <img src="assets/images/pinknoise.png" class="rec" alt="PinkNoise">
+                <img src="assets/images/flyleaf.png" class="rec" alt="Flyleaf">
+                <img src="assets/images/robzombie.png" class="rec" alt="Rob Zombie">
             </div>
-    
+
+            <!-- Dots -->
             <div class="dots">
-                <label for="r1"></label>
-                <label for="r2"></label>
-                <label for="r3"></label>
-                <label for="r4"></label>
-                <label for="r5"></label>
-                <label for="r6"></label>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
-    
-        </div>
-        <!-- Pixel Guide Navigation -->
-    <a href="index.html" class="pixel-guide">
-        <img src="assets/images/favicon1.png" alt="Site Guide">
 
-        <div class="speech-bubble">
-            <span class="typewriter">Give these a suffle!</span>
         </div>
-
-    </a>
-    
     </div>
-            
-            
-            
-            
+
+    <!-- Speech Bubble Navigation -->
+    <a href="index.html" class="pixel-guide">
+        <div class="speech-bubble">
+            <span class="typewriter">Click the into & give<br><br>the records a shuffle!</span>
+        </div>
+    </a>
 
 </div>
+
+<script>
+    const intro = document.querySelector('.intro');
+    const contentBlock = document.querySelector('.content-block');
+    const records = document.querySelectorAll('.rec');
+    const dots = document.querySelectorAll('.dot');
+
+    let currentIndex = 0;
+
+    // Toggle content block on intro click
+    intro.addEventListener('click', () => {
+        contentBlock.classList.toggle('show');
+    });
+
+    function showRecord(index) {
+        records.forEach((rec, i) => {
+            rec.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentIndex = index;
+    }
+
+    // Click visible record to move to next
+    records.forEach((rec) => {
+        rec.addEventListener('click', () => {
+            const nextIndex = (currentIndex + 1) % records.length;
+            showRecord(nextIndex);
+        });
+    });
+
+    // Initialize first record
+    showRecord(0);
+</script>
 
 </body>
 </html>

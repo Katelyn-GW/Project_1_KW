@@ -80,15 +80,23 @@
     </div>
 
 </div>
-<!-- Pixel Guide Navigation -->
+
+<!-- Speech Bubble Navigation -->
 <a href="index.html" class="pixel-guide">
-    <img src="assets/images/favicon1.png" alt="Site Guide">
 
     <div class="speech-bubble">
-        <span class="typewriter">My thumb is green!</span>
+        <span class="typewriter">Click each leaf to learn more!</span>
     </div>
 
 </a>
 
+<script>
+    document.querySelectorAll('.plant-image img').forEach((img) => {
+        img.addEventListener('click', function() {
+            const plantInfo = this.closest('li').querySelector('.plant-info');
+            plantInfo.classList.toggle('show');
+        });
+    });
+    </script>
 </body>
 </html>

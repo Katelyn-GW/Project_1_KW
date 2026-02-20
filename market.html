@@ -72,15 +72,22 @@
     </div>
 </div>
 
-<!-- Pixel Guide Navigation -->
+<!-- Speech Bubble Navigation -->
 <a href="index.html" class="pixel-guide">
-    <img src="assets/images/favicon1.png" alt="Site Guide">
 
     <div class="speech-bubble">
-        <span class="typewriter">Happy shopping!</span>
+        <span class="typewriter">Click the into box!<br><br>Happy shopping!</span>
     </div>
 
 </a>
-
+<script>
+    document.querySelector('.intro').addEventListener('click', function() {
+        document.querySelectorAll('.content-block').forEach((block, index) => {
+            setTimeout(() => {
+                block.classList.add('drop');
+            }, index * 400); // stagger delay
+        });
+    });
+    </script>
 </body>
 </html>

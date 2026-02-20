@@ -55,10 +55,18 @@ p {
 .plant-list li:nth-child(even) {
     flex-direction: row-reverse;
 }
-
+/* text appear */
 .plant-info {
     flex: 1;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s ease;
 }
+.plant-info.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .plant-image img {
     width: 400px;       
     height: 400px;      
@@ -77,8 +85,7 @@ p {
     100% { transform: rotate(-2deg); }
 }
 
-
-/* Floating pixel navigation */
+/* navigation system */
 .pixel-guide {
     position: fixed;
     right: 40px;
@@ -93,18 +100,6 @@ p {
 }
 
 
-/* Pixel image */
-.pixel-guide img {
-    width: 120px;
-    image-rendering: pixelated;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.pixel-guide:hover img {
-    transform: scale(1.08);
-}
-
 /* Speech bubble */
 .speech-bubble {
     background: black;
@@ -115,25 +110,11 @@ p {
     font-size: 16px;
     border: 2px solid white;
     box-shadow: 4px 4px 0 rgba(255,255,255,0.7);
-    margin-bottom: 15px;
     position:relative;
     max-width: 310px;
 }
 
-/* Bubble arrow pointing down */
-.speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 12px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
-}
-
-
-/* Typewriter Effect */
+/* Typewriter Effect fro speech bubble*/
 .typewriter {
     display: inline-block;
     overflow: hidden;
@@ -142,6 +123,10 @@ p {
     width: 0;
     animation: typing 3s steps(32, end) forwards,
                blink 0.8s step-end infinite;
+}
+.pixel-guide:hover .speech-bubble {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 @keyframes typing {
